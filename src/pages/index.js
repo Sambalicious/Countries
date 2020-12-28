@@ -1,4 +1,4 @@
-import Head from "next/head";
+import { useState } from "react";
 import Layout from "../Components/Layout/Layout";
 import styles from "../styles/Home.module.css";
 import SearchInput from "../Components/SearchInput/SearchInput";
@@ -6,12 +6,21 @@ import CountriesTable from "../Components/CountriesTable/CountriesTable";
 
 export default function Home({ countries }) {
   console.log(countries);
+  const [searchValue, setSearchValue] = useState("");
+
+  const filteredCountries = countries.filter((country) =>
+    country.name.toLowerCase().includes(searchValue)
+  );
+
   return (
     <Layout>
       <div className={styles.counts}>Found {countries.length} countries</div>
-      <SearchInput placeholder={"Filter by Name, Continents and Sub Region"} />
+      <SearchInput
+        onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
+        placeholder={"Filter by Name, Continents and Sub Region"}
+      />
 
-      <CountriesTable countries={countries} />
+      <CountriesTable countries={filteredCountries} />
     </Layout>
   );
 }
