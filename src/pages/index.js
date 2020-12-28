@@ -8,17 +8,25 @@ export default function Home({ countries }) {
   console.log(countries);
   const [searchValue, setSearchValue] = useState("");
 
-  const filteredCountries = countries.filter((country) =>
-    country.name.toLowerCase().includes(searchValue)
+  const filteredCountries = countries.filter(
+    (country) =>
+      country.name.toLowerCase().includes(searchValue) ||
+      country.region.toLowerCase().includes(searchValue) ||
+      country.subregion.toLowerCase().includes(searchValue)
   );
 
   return (
     <Layout>
-      <div className={styles.counts}>Found {countries.length} countries</div>
-      <SearchInput
-        onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
-        placeholder={"Filter by Name, Continents and Sub Region"}
-      />
+      <div className={styles.input_container}>
+        <div className={styles.counts}>Found {countries.length} countries</div>
+        <div className={styles.input}>
+          {" "}
+          <SearchInput
+            onChange={(e) => setSearchValue(e.target.value.toLowerCase())}
+            placeholder={"Filter by Name, Continents and Sub Region"}
+          />
+        </div>
+      </div>
 
       <CountriesTable countries={filteredCountries} />
     </Layout>

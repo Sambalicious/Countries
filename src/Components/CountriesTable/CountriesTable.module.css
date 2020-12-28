@@ -1,5 +1,6 @@
 .heading {
   display: flex;
+  padding: 20px;
 }
 
 .heading button {
@@ -9,10 +10,17 @@
   cursor: pointer;
 }
 
-.headings_name,
-.headings_population {
+.heading_flag {
   flex: 1;
-  padding: 20px;
+  margin-right: 16px;
+}
+
+.headings_name,
+.headings_area,
+.headings_gini,
+.headings_population {
+  flex: 4;
+
   color: var(--text-color-secondary);
   font-weight: 500;
   display: flex;
@@ -22,6 +30,17 @@
 
 .headings_name {
   justify-content: flex-start;
+}
+
+.headings_population {
+  justify-content: center;
+}
+.headings_area {
+  justify-content: center;
+}
+
+.headings_gini {
+  justify-content: center;
 }
 
 .heading_arrow {
@@ -50,9 +69,35 @@
 }
 
 .name {
-  flex: 1;
+  flex: 4;
   text-align: left;
 }
 .population {
+  flex: 4;
+}
+
+.area {
+  flex: 4;
+}
+
+.gini {
+  flex: 4;
+}
+.flag {
   flex: 1;
+  margin-right: 16px;
+}
+
+.flag img {
+  width: 100%;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 720px) {
+  .gini,
+  .area,
+  .headings_gini,
+  .headings_area {
+    display: none;
+  }
 }
