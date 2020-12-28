@@ -57,7 +57,6 @@ const CountriesTable = ({ countries }) => {
     setValue(value);
   };
 
-  console.log(direction);
   return (
     <div>
       <div className={styles.heading}>

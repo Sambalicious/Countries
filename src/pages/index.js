@@ -5,7 +5,6 @@ import SearchInput from "../Components/SearchInput/SearchInput";
 import CountriesTable from "../Components/CountriesTable/CountriesTable";
 
 export default function Home({ countries }) {
-  console.log(countries);
   const [searchValue, setSearchValue] = useState("");
 
   const filteredCountries = countries.filter(

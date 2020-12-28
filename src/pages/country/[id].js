@@ -8,7 +8,6 @@ const Country = ({ country }) => {
     const borders = await Promise.all(
       country.borders.map((border) => getCountry(border))
     );
-    console.log("borders", borders);
 
     setBorders(borders);
   };

@@ -29,7 +29,6 @@ const Layout = ({ children, title }) => {
     setTheme(localStorage.getItem("theme"));
   }, []);
 
-  console.log(theme);
   return (
     <div className={styles.container}>
       <Head>
