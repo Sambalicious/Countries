@@ -9,14 +9,16 @@ const Layout = ({ children, title }) => {
 
   const switchTheme = () => {
     if (theme === "dark") {
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-      document.documentElement.setAttribute("data-theme", "light");
+      saveTheme("light");
     } else {
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-      document.documentElement.setAttribute("data-theme", "dark");
+      saveTheme("dark");
     }
+  };
+
+  const saveTheme = (theme) => {
+    setTheme(theme);
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
   };
 
   useEffect(() => {
