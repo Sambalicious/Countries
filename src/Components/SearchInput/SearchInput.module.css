@@ -9,7 +9,7 @@
 
 .input {
   border: none;
-  background-color: transparent;
+  background-color: var(--background-color-dark);
   padding: 16px;
   width: 100%;
   outline: none;
